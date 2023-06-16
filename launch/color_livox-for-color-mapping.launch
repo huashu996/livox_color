@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="rviz" default="true" />
+  <!-- <param name="intrinsic_path"        value="/home/yijiankeji/data/parameters/intrinsic_livox.txt" />  
+  <param name="extrinsic_path"        value="/home/yijiankeji/data/parameters/extrinsic_livox.txt" />   -->
+  <node pkg="livox_color" name="livox_color" type="for_color_mapping" output="screen"  ></node>
+  <group if="$(arg rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" respawn="true" args="-d $(find livox_color)/rvz/color.rviz" />
+  </group>
+</launch>
